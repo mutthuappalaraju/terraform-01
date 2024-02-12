@@ -1,14 +1,9 @@
 
 resource "aws_instance" "web" {
-    ami           = "ami-0f3c7d07486cad139"
-    instance_type = "t2.micro"
+    ami           = var.ami_id #devops-practice
+    instance_type = var.instence_type
     vpc_security_group_ids = [aws_security_group.mutthu-all.id]
-    
-    
-  tags = {
-    Name = "mutthu-Terraform"
-  }
-
+    tags = var.tags    
 }
 
 resource "aws_security_group" "mutthu-all" {
